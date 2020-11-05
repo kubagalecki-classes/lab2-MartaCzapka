@@ -14,6 +14,12 @@ public:
     }
     int getD() { return dlugosc; }
     ~Wektor() { delete[] wektor; }
+    void print()
+    {
+        for (int i; i < this->getD(); i++)
+            cout << this->wektor[i] << " ";
+        cout << "\n";
+    }
 
 private:
     int n;
@@ -25,5 +31,6 @@ int main()
     Wektor wek(2);
     cout << wek.wektor[2] << "\n";
     dlugosc_wektora = wek.getD();
-    cout << dlugosc_wektora;
+    cout << dlugosc_wektora << "\n";
+    wek.print();
 }
