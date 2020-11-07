@@ -44,7 +44,8 @@ public:
             cout << this->wektor[i] << " ";
         cout << "\n";
     }
-    int getP() { return pojemnosc; }
+    int     getP() { return pojemnosc; }
+    double& operator[](int x) { return wektor[n]; }
 
 private:
     int n;
@@ -70,4 +71,9 @@ int main()
     wek.print();
     pojemnosc_wektora = wek.getP();
     cout << pojemnosc_wektora << "\n";
+    wek.wektor[0] = 42.;
+    double a      = wek.wektor[0];
+    a++;
+    cout << wek.wektor[0] << " " << a;
+    ;
 }
