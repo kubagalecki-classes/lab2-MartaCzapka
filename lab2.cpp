@@ -5,6 +5,8 @@ class Wektor
 {
 public:
     double* wektor = new double[dlugosc];
+    double* w      = new double[dlugosc];
+    Wektor(const Wektor& w) : dlugosc{w.dlugosc} {}
     Wektor(int liczba_el) : dlugosc{liczba_el}
     {
         pojemnosc = liczba_el;
@@ -59,7 +61,7 @@ private:
 struct Kokardka
 {
     Kokardka() { dlugosc = 42; }
-    Kokardka(int d) { dlugosc = d; }
+    // Kokardka(int d) { dlugosc = d; }
     int dlugosc;
 };
 struct Prezent
@@ -71,8 +73,17 @@ struct Prezent
     }
     Kokardka k;
 };
+struct Liczba
+{
+    Liczba(int w) : wartosc{w} { cout << "Konstruktor \n"; }
+    Liczba(const Liczba& l) : wartosc{l.wartosc} { cout << "Konstruktor kopiujący \n"; }
+    int wartosc;
+};
 int main()
 {
+    Liczba   h{1};
+    Liczba   b{h};
+    Liczba   c = h;
     Kokardka ko;
     Prezent  pre(3);
 
@@ -93,6 +104,8 @@ int main()
     wek.print();
     pojemnosc_wektora = wek.getP();
     cout << pojemnosc_wektora << "\n";
+    Wektor j = wek;
+    j.print();
     wek.wektor[8] = 42.;
     cout << dlugosc_wektora << "\n";
     double a = wek.wektor[8];
