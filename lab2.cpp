@@ -4,13 +4,13 @@ using namespace std;
 class Wektor
 {
 public:
-    double* wektor = new double[n];
-    Wektor(int liczba_el)
+    double* wektor = new double[dlugosc];
+    Wektor(int liczba_el) : dlugosc{liczba_el}
     {
         pojemnosc = liczba_el;
         dlugosc   = liczba_el;
-        n         = liczba_el;
-        for (int i = 0; i < n; i++) {
+
+        for (int i = 0; i < dlugosc; i++) {
             wektor[i] = 0;
         }
     }
@@ -53,12 +53,29 @@ public:
     }
 
 private:
-    int n;
     int dlugosc;
     int pojemnosc;
 };
+struct Kokardka
+{
+    Kokardka() { dlugosc = 42; }
+    Kokardka(int d) { dlugosc = d; }
+    int dlugosc;
+};
+struct Prezent
+{
+    Prezent(int dk)
+    {
+        cout << k.dlugosc << "\n";
+        k.dlugosc = dk;
+    }
+    Kokardka k;
+};
 int main()
 {
+    Kokardka ko;
+    Prezent  pre(3);
+
     int    dlugosc_wektora;
     int    pojemnosc_wektora;
     Wektor wek(2);
@@ -76,7 +93,7 @@ int main()
     wek.print();
     pojemnosc_wektora = wek.getP();
     cout << pojemnosc_wektora << "\n";
-    wek.wektor[6] = 42.;
+    wek.wektor[8] = 42.;
     cout << dlugosc_wektora << "\n";
     double a = wek.wektor[8];
     a++;
