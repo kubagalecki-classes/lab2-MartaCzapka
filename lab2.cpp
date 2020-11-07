@@ -40,12 +40,17 @@ public:
     ~Wektor() { delete[] wektor; }
     void print()
     {
-        for (int i; i < this->getD(); i++)
+        for (int i; i < this->dlugosc; i++)
             cout << this->wektor[i] << " ";
         cout << "\n";
     }
     int     getP() { return pojemnosc; }
-    double& operator[](int x) { return wektor[n]; }
+    double& operator[](int x)
+    {
+        if (x > dlugosc)
+            this->zmienDlugosc(x + 1);
+        return wektor[x];
+    }
 
 private:
     int n;
@@ -71,9 +76,10 @@ int main()
     wek.print();
     pojemnosc_wektora = wek.getP();
     cout << pojemnosc_wektora << "\n";
-    wek.wektor[0] = 42.;
-    double a      = wek.wektor[0];
+    wek.wektor[6] = 42.;
+    cout << dlugosc_wektora << "\n";
+    double a = wek.wektor[8];
     a++;
-    cout << wek.wektor[0] << " " << a;
-    ;
+    wek.print();
+    cout << wek.wektor[8] << " " << a;
 }
