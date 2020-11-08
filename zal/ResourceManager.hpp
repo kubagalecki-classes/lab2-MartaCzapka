@@ -14,7 +14,7 @@ class ResourceManager
     ResourceManager(const ResourceManager&& re):wsk(std::move(re.wsk)){}
     ResourceManager& operator=(ResourceManager&& re){
       wsk=std::move(re.wsk);
-      retur *this;
+      return *this;
     }
     double get() {return wsk->get();}
     ~ResourceManager() {delete wsk;}
