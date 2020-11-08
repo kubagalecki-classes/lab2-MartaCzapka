@@ -17,6 +17,8 @@ class ResourceManager
     ResourceManager(const ResourceManager&& re):wsk(std::move(re.wsk)){}
     ResourceManager& operator=(ResourceManager&& re){
       if(wsk==re.wsk) return *this;
+      delete wsk;
+      wsk=new Resource;
       wsk=std::move(re.wsk);
       return *this;
     }
