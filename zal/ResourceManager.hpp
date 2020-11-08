@@ -5,7 +5,7 @@
 class ResourceManager
 {
   public:
-    Resource& re;
+    Resource* re;
     ResourceManager() {};
     ResourceManager (const Resource& re) {};
     double get() {return re.get();}
