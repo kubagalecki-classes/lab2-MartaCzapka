@@ -11,9 +11,9 @@ class ResourceManager
       wsk=NULL;
       }
     ResourceManager ( const ResourceManager& re):wsk(re.wsk) {
-      wsk=re.wsk;
+   
       cout<<"konstruktor \n";
-      return *this;
+     
       }
     double get() {return wsk->get();}
     ~ResourceManager() {delete wsk; cout<<"destruktor \n";}
