@@ -4,10 +4,9 @@
 
 class ResourceManager
 {
-    public:
-    friend class Resource;
+    Resource& re;
     ResourceManager() {};
-    ResourceManager (const Resource&) {};
-    
+    ResourceManager (const Resource& re) {};
+    double get() {return re.get();}
     ~ResourceManager() {};
 };
