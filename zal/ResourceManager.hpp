@@ -6,8 +6,8 @@ class ResourceManager
 {
   public:
     Resource* re;
-    ResourceManager() {};
-    ResourceManager (const Resource& re) {};
+    ResourceManager() {re=NULL;}
+    ResourceManager (const Resource& re) {this->re=re;}
     double get() {return re->get();}
-    ~ResourceManager() {};
+    ~ResourceManager() {delete re;}
 };
