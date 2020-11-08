@@ -8,6 +8,6 @@ class ResourceManager
     Resource* re;
     ResourceManager() {};
     ResourceManager (const Resource& re) {};
-    double get() {return re.get();}
+    double get() {return re->get();}
     ~ResourceManager() {};
 };
