@@ -9,7 +9,10 @@ class ResourceManager
     ResourceManager ( const ResourceManager& re):wsk(re.wsk) { }
     ResourceManager& operator=(const ResourceManager& re){
       if(wsk != re.wsk)
+      { 
+        delete wsk;
         wsk=re.wsk;
+      }
       return *this;
     }
     ResourceManager(const ResourceManager&& re):wsk(std::move(re.wsk)){}
