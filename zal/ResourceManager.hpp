@@ -15,6 +15,11 @@ class ResourceManager
       cout<<"konstruktor \n";
      
       }
+      ResourceManager operator=( const ResourceManager& re){
+        wsk=re.wsk;
+        return *this;
+      }
+      ResourceManager (const ResourceManager&& re):wsk(std::move(wsk.re){}
     double get() {return wsk->get();}
     ~ResourceManager() {delete wsk; cout<<"destruktor \n";}
 };
