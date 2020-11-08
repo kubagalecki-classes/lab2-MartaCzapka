@@ -8,7 +8,7 @@ class ResourceManager
     ResourceManager() { wsk = new Resource;}
     ResourceManager ( const ResourceManager& re):wsk(re.wsk) { }
     ResourceManager& operator=(const ResourceManager& re){
-      if(this == re.wsk) return *this;
+      if(wsk == re.wsk) return *this;
       delete wsk;
       wsk=new Resource;
       wsk=re.wsk;
@@ -16,6 +16,7 @@ class ResourceManager
     }
     ResourceManager(const ResourceManager&& re):wsk(std::move(re.wsk)){}
     ResourceManager& operator=(ResourceManager&& re){
+      if(wsk==re.wsk) return *this;
       wsk=std::move(re.wsk);
       return *this;
     }
