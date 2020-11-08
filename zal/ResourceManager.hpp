@@ -4,6 +4,7 @@
 
 class ResourceManager
 {
+  public:
     Resource& re;
     ResourceManager() {};
     ResourceManager (const Resource& re) {};
