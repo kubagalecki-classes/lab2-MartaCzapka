@@ -4,5 +4,10 @@
 
 class ResourceManager
 {
-    // Twoja implementacja tutaj
+    public:
+    friend class Resource;
+    ResourceManager() {};
+    ResourceManager (const Resource&) {};
+    
+    ~ResourceManager() {};
 };
