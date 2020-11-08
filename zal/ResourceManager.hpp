@@ -14,7 +14,7 @@ class ResourceManager
       wsk=re.wsk;
       return *this;
     }
-    ResourceManager(const ResourceManager&& re):wsk(std::move(re.wsk)){}
+    ResourceManager(const ResourceManager&& re):wsk(std::move(re.wsk)){delete wsk;}
     ResourceManager& operator=(ResourceManager&& re){
       if(wsk==re.wsk) return *this;
       delete wsk;
