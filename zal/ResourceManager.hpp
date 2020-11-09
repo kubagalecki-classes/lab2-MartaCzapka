@@ -10,16 +10,19 @@ class ResourceManager
     ResourceManager& operator=(const ResourceManager& re){
       if(wsk == re.wsk) return *this;
       delete wsk;
-      wsk=new Resource;
       wsk=re.wsk;
       return *this;
     }
-    ResourceManager(const ResourceManager&& re):wsk(std::move(re.wsk)){delete wsk;}
+    ResourceManager(const ResourceManager&& re)
+    {
+      wsk=re.wsk;
+      re.wsk=nullptr;
+    }
     ResourceManager& operator=(ResourceManager&& re){
       if(wsk==re.wsk) return *this;
       delete wsk;
-      wsk=new Resource;
-      wsk=std::move(re.wsk);
+       wsk=re.wsk;
+      re.wsk=nullptr;
       return *this;
     }
     double get() {return wsk->get();}
