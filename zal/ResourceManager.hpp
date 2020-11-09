@@ -10,6 +10,7 @@ class ResourceManager
     ResourceManager& operator=(const ResourceManager& re){
       if(wsk == re.wsk) return *this;
       delete wsk;
+      wsk= new Resource;
       wsk=re.wsk;
       return *this;
     }
@@ -21,10 +22,11 @@ class ResourceManager
     ResourceManager& operator=(ResourceManager&& re){
       if(wsk==re.wsk) return *this;
       delete wsk;
-       wsk=re.wsk;
+      wsk= new Resource;
+      wsk=re.wsk;
       this->wsk=nullptr;
       return *this;
     }
     double get() {return wsk->get();}
-    ~ResourceManager() {delete wsk;}
+    ~ResourceManager() {delete this->wsk;}
 };
