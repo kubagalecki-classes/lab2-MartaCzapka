@@ -5,7 +5,7 @@ class ResourceManager
 {
   public:
     Resource* wsk;
-    ResourceManager() { wsk = new Resource;}
+     ResourceManager ( ):wsk(){};
     ResourceManager ( const ResourceManager& re):wsk(re.wsk) { }
     ResourceManager& operator=(const ResourceManager& re){
       if(wsk == re.wsk) return *this;
