@@ -16,13 +16,13 @@ class ResourceManager
     ResourceManager(const ResourceManager&& re)
     {
       wsk=re.wsk;
-      re.wsk=nullptr;
+      this->wsk=nullptr;
     }
     ResourceManager& operator=(ResourceManager&& re){
       if(wsk==re.wsk) return *this;
       delete wsk;
        wsk=re.wsk;
-      re.wsk=nullptr;
+      this->wsk=nullptr;
       return *this;
     }
     double get() {return wsk->get();}
