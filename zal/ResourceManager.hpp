@@ -27,5 +27,5 @@ class ResourceManager
       return *this;
     }
     double get() {return wsk->get();}
-    ~ResourceManager() {delete wsk;}
+    ~ResourceManager() {}
 };
