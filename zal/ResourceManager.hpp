@@ -4,13 +4,13 @@
 class ResourceManager
 {
  public:
-    Resource* wsk=new* Resource;
-    ResourceManager():wsk{}{}
+    Resource* wsk;
+    ResourceManager ( ){wsk= new Resource; }
     ResourceManager ( const ResourceManager& re):wsk(re.wsk) {}
     ResourceManager& operator=(const ResourceManager& re){
       if(wsk == re.wsk) return *this;
       delete wsk;
-      
+      wsk= new Resource;
       wsk=re.wsk;
       return *this;
      
@@ -23,7 +23,7 @@ class ResourceManager
     ResourceManager& operator=(ResourceManager&& re){
       if(wsk==re.wsk) return *this;
       delete wsk;
-     
+      wsk= new Resource;
       wsk=re.wsk;
       this->wsk=nullptr;
       return *this;
