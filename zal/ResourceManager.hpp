@@ -4,7 +4,7 @@
 class ResourceManager
 {
  public:
-    Resource* wsk=new Resource;
+    Resource* wsk=new* Resource;
     ResourceManager():wsk{}{}
     ResourceManager ( const ResourceManager& re):wsk(re.wsk) {}
     ResourceManager& operator=(const ResourceManager& re){
