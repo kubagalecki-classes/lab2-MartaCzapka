@@ -16,7 +16,7 @@ class ResourceManager
     }
     ResourceManager(ResourceManager&& re){
       wsk=re.wsk;
-      this->wsk=nullptr;
+      re.wsk=nullptr;
       
     }
     ResourceManager& operator=(ResourceManager&& re){
@@ -24,7 +24,7 @@ class ResourceManager
       delete wsk;
       wsk= new Resource;
       wsk=re.wsk;
-      this->wsk=nullptr;
+      re.wsk=nullptr;
       return *this;
      
     }
