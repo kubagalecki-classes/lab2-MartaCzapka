@@ -22,7 +22,7 @@ class ResourceManager
     ResourceManager& operator=(ResourceManager&& re){
       if(wsk==re.wsk) return *this;
       delete wsk;
-      wsk= new Resource{*re.wsk};
+      wsk= re.wsk;
       re.wsk=nullptr;
       return *this;
      
