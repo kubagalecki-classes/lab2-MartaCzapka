@@ -14,8 +14,7 @@ class ResourceManager
       return *this;
      
     }
-    ResourceManager(const ResourceManager&& re){
-      wsk= new Resource{*re.wsk};
+    ResourceManager( ResourceManager&& re){
       wsk=re.wsk;
       this->wsk=nullptr;
       
